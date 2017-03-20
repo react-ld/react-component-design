@@ -1,0 +1,23 @@
+
+.ms-loading{
+    .loading-box{
+        position: absolute; left: 0; top: 0; right: 0; bottom: 0; margin: auto; width: 120px; box-sizing: border-box; height: 106px;
+        background-color: rgba(0, 0, 0, 0.8); border-radius: 8px; z-index: 4; padding: 25px;
+        .loading-icon{
+          margin: 0 auto 15px auto;
+          width: 20px;
+          height: 20px;
+          border: 2px solid #fff;
+          border-top-color: rgba(0,0,0,.8);
+          border-radius: 100%;
+          animation: circle .8s infinite linear;
+        }
+    }
+    .loading-text{
+        font-size: 14px; color: #fff; text-align: center; 
+    }
+}
+// loading效果
+@keyframes circle {
+    100% { transform: rotate(360deg); }
+}

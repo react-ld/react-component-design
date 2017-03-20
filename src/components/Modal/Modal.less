@@ -1,0 +1,49 @@
+
+.ms-modal{
+    position: fixed;
+    overflow: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+    .ms-modal-mask{
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-color: #373737;
+        background-color: rgba(55, 55, 55, 0.6);
+        height: 100%;
+        z-index: 1000;
+    }
+    .ms-modal-box{
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        transform: translateY(-50%);
+        width: 80%;
+        height: 200px;
+        background-color: #fff;
+        border-radius: 4px;
+        z-index: 1000;
+    }
+    .icon-close{
+        position: absolute; font-size: 20px; right: 10px; top: 8px;
+    }
+    .ms-modal-content{
+        height: 155px; margin: 0 6.5px; display: flex; text-align: center; align-items: center; font-size: 18px; color: #4a4a4a; justify-content: center;
+        span{ display: block;}
+    }
+    .ms-modal-btns{
+        height: 44px; margin: 0 6.5px; border-top: 1px solid #9b9b9b; display: flex; justify-content: space-around; font-size: 18px; text-align: center;align-items:center;
+        .item{flex: 1; border: 0; margin: 0; padding: 0; outline: none;background-color: #fff;}
+        .item:nth-child(2){border-left: 1px solid #9b9b9b;}
+        .ok{color: #E6425E;}
+    }
+}

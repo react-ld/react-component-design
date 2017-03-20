@@ -1,0 +1,22 @@
+
+.ms-tips{
+    .tips-box{
+        position: fixed; left: 0; top: 0; right: 0; bottom: 0; margin: auto; width: 220px; box-sizing: border-box; height: 71px; background-color: rgba(0, 0, 0, 0.8); border-radius: 8px; z-index: 99; padding: 25px; line-height: 1.5;
+        .tips-text{
+            font-size: 14px; color: #fff; text-align: center; margin: 0;
+        }
+    }
+
+    .message-enter {
+      opacity: 0;
+      transition: transform .5s ease-in;
+      transform: translateY(40px);
+      transform: -webkit-translateY(40px);
+    }
+
+    .message-enter.message-enter-active {
+      opacity: 1;
+      transform: translateY(0);
+      transform: -webkit-translateY(0);
+    }
+}
