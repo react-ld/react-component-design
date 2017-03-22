@@ -4,7 +4,7 @@ import './App.less'
 
 export default class App extends Component {
   state = {
-    isLoading1: false,
+    loading1Msg: "",
     isLoading2: false,
     isMsgShow: false,
     isModalShow: false,
@@ -13,9 +13,9 @@ export default class App extends Component {
   };
   handleLoading1 = () =>{
     console.info("handleLoading1")
-    if(!this.state.isLoading1){
-      this.setState({isLoading1: true});
-      setTimeout(()=>{this.setState({isLoading1: false});}, 3000);
+    if(!this.state.loading1Msg){
+      this.setState({loading1Msg: "加载中..."});
+      setTimeout(()=>{this.setState({loading1Msg: ""});}, 3000);
     }
   }
 
@@ -23,7 +23,7 @@ export default class App extends Component {
     console.info("handleLoading2")
     if(!this.state.isLoading2){
       this.setState({isLoading2: true});
-      setTimeout(()=>{this.setState({isLoading2: false});}, 3000);
+      setTimeout(()=>{this.setState({isLoading2: false});}, 30000);
     }
   }
 
@@ -77,9 +77,13 @@ export default class App extends Component {
     })
   }
 
+  handleOnload = (a) =>{
+    console.info(a)
+  }
+  
   render() {
     const{
-      isLoading1,
+      loading1Msg,
       isLoading2,
       isMsgShow,
       isModalShow,
@@ -89,20 +93,22 @@ export default class App extends Component {
 
     return (
       <div>
+        <img src="http://img1.gtimg.com/ninja/2/2017/03/ninja148996765198411.jpg" onLoad={this.handleOnload} alt=""/>
         <button onClick={this.handleLoading1}>点击 Loading 测试</button>
         <button onClick={this.handleLoading2}>点击 Loading 测试2</button>
         <button onClick={this.handleMessage}>点击 Messages 测试</button>
         <button onClick={this.openModal}>点击 Modal 测试</button>
         <button onClick={this.openModal2}>点击 Modal2 测试</button>
-        { isLoading1 ? <Loading msg="加载中..."/> : "" }
-        { isLoading2 ? 
-          <Loading>
+        { loading1Msg !== "" ? <Loading msg={loading1Msg}/> : "" }
+        {
+          isLoading2 ? 
+          <Loading className="custom-loading" style={{height: 0}}>
             <div className="custem-loading-box">
               <div className="custem-loading-icon"></div>
               <div className="custem-loading-text">更新数据中...</div>
             </div>
           </Loading>
-          : "" 
+          : ""
         }
         {
           isModalShow ? <Modal text={modalValue} onCancel={this.onClose} onOk={this.onOK}/> : ""

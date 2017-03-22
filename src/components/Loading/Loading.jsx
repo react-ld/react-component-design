@@ -2,15 +2,15 @@ import React, { Component, PropTypes } from 'react'
 import './Loading.less'
 
 export default class Loading extends Component {
-
-  constructor(props) {
-    super(props)
+  static propTypes = {
+    msg: PropTypes.string,
   }
 
   render() {
     const {
       msg,
       children,
+      className,
       ...other
     } = this.props
 
@@ -26,13 +26,9 @@ export default class Loading extends Component {
     }
 
     return (
-      <div {...other} className="ms-loading">
+      <div {...other} className={`ms-loading ${className ? className : ""}`}>
        { content }
       </div>
     )
   }
-}
-
-Loading.propTypes = {
-  msg: PropTypes.string,
 }

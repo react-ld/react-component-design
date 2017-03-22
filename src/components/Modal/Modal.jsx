@@ -2,6 +2,11 @@ import React, { Component, PropTypes } from 'react'
 import './Modal.less'
 
 export default class Modal extends Component {
+  static propTypes = {
+    text: PropTypes.any,
+    onCancel: PropTypes.func,
+    onOk: PropTypes.func
+  };
 
   render() {
     let { text, onCancel, onOk, ...other} = this.props
@@ -22,10 +27,4 @@ export default class Modal extends Component {
       </div>
     )
   }
-}
-
-Modal.propTypes = {
-  text: PropTypes.any,
-  onCancel: PropTypes.func,
-  onOk: PropTypes.func
 }

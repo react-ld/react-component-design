@@ -9,11 +9,9 @@ class Notification extends Component {
 
   state = {
     msg: "",
-    isShow: false,
   };
 
   add = (msg, duration, onClose) =>{
-    console.info(typeof msg);
     this.setState({msg});
     setTimeout(()=>{
       this.setState({msg: ""});
@@ -52,9 +50,6 @@ function createInstance() {
     notice(msg, duration, onClose) {
       notification.add(msg, duration, onClose);
     },
-    // removeNotice(key) {
-    //   notification.remove(key);
-    // },
     component: notification,
     destroy() {
       ReactDOM.unmountComponentAtNode(div);
